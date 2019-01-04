@@ -29,7 +29,7 @@ setup(name='courseraprogramming',
       packages=['courseraprogramming', 'courseraprogramming.commands'],
       install_requires=[
           'dockerfile-parse==0.0.6',
-          'docker-py==1.10.4',
+          'docker-py==1.10.6',
           'requests==2.9.2',
           'requests-toolbelt==0.7.1',
           'semver==2.7.5',

@@ -61,7 +61,7 @@ def run_container(docker, container, args):
         logging.info('Debug log:')
         sys.stdout.write('-' * 80)
         sys.stdout.write('\n')
-        sys.stdout.write(stderr_output)
+        sys.stdout.write(str(stderr_output))
         sys.stdout.write('-' * 80)
         sys.stdout.write('\n')
 
@@ -102,7 +102,7 @@ def run_container(docker, container, args):
             sys.stdout.write('Grader output:\n')
             sys.stdout.write('=' * 80)
             sys.stdout.write('\n')
-            sys.stdout.write(stdout_output)
+            sys.stdout.write(str(stdout_output))
             sys.stdout.write('=' * 80)
             sys.stdout.write('\n')
         if not args.no_rm:
@@ -135,6 +135,7 @@ def command_grade_local(args):
     """
     d = utils.docker_client(args)
     memory_limit = compute_memory_limit(args)
+    memory_limit = "1g"
     try:
         volume_str = common.mk_submission_volume_str(args.dir)
         logging.debug("Volume string: %s", volume_str)
